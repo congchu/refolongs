@@ -32,9 +32,17 @@
 
 ---
 
+## 리소스
+
+- **디자인 스킬 GitHub:** https://github.com/corazzon/pptx-design-styles
+- **미리보기:** https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs-30.html
+- **유튜브 영상:** https://youtu.be/5qxrY88lW_Q
+
+---
+
 ## 💡 활용 메모
 
 - AI 강의 슬라이드 직접 만들 때 적용 가능
+- GitHub 스킬 파일 받아서 Claude/Codex에 바로 적용
+- 미리보기에서 30가지 디자인 스타일 직접 확인 가능
 - "AI 티 안 나는 슬라이드" → 강의 자료 퀄리티 업
-- 노르딕 디자인 프롬프트 패턴 참고
-- 원문 댓글에서 스킬 파일 + 영상 링크 확인 필요
