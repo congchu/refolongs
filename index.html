@@ -283,9 +283,13 @@
       <button class="gnb-tab active" data-section="ref" onclick="setSection('ref')">레퍼런스</button>
     </div>
   </div>
-  <div class="view-toggle">
-    <button class="view-btn" id="btn-list" onclick="setView('list')" title="리스트">☰</button>
-    <button class="view-btn" id="btn-grid" onclick="setView('grid')" title="그리드">⊞</button>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <input id="searchInput" type="text" placeholder="검색..." oninput="renderContent()"
+      style="height:32px;padding:0 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;width:160px;background:var(--bg);color:var(--text);" />
+    <div class="view-toggle">
+      <button class="view-btn" id="btn-list" onclick="setView('list')" title="리스트">☰</button>
+      <button class="view-btn" id="btn-grid" onclick="setView('grid')" title="그리드">⊞</button>
+    </div>
   </div>
 </nav>
 
@@ -510,7 +514,14 @@ function renderFilterBar() {
 function renderContent() {
   const container = document.getElementById("content");
   const sectionItems = getSectionItems();
-  const filtered = catFilter === "all" ? sectionItems : sectionItems.filter(i => i.cat === catFilter);
+  const query = (document.getElementById("searchInput")?.value || "").trim().toLowerCase();
+  const catFiltered = catFilter === "all" ? sectionItems : sectionItems.filter(i => i.cat === catFilter);
+  const filtered = query ? catFiltered.filter(i =>
+    i.title.toLowerCase().includes(query) ||
+    (i.author || "").toLowerCase().includes(query) ||
+    (i.memo || "").toLowerCase().includes(query) ||
+    (i.tags || []).some(t => t.toLowerCase().includes(query))
+  ) : catFiltered;
 
   if (filtered.length === 0) {
     container.innerHTML = `<div class="empty">항목이 없습니다.</div>`;
