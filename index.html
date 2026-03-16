@@ -16,6 +16,7 @@
       --accent: #6366f1;
       --accent-dim: #312e81;
 
+      --cat-me: #e11d48;
       --cat-ai: #7c3aed;
       --cat-ax: #0ea5e9;
       --cat-tools: #10b981;
@@ -155,15 +156,17 @@
     }
 
     /* category colors */
-    .cat-ai-education  { background: #3b0764; color: #c4b5fd; border-color: #6d28d9; }
-    .cat-ax-cases      { background: #082f49; color: #7dd3fc; border-color: #0369a1; }
-    .cat-tools         { background: #022c22; color: #6ee7b7; border-color: #059669; }
-    .cat-inspiration   { background: #451a03; color: #fcd34d; border-color: #b45309; }
+    .cat-00-me         { background: #4c0519; color: #fda4af; border-color: #be123c; }
+    .cat-01-ai-education { background: #3b0764; color: #c4b5fd; border-color: #6d28d9; }
+    .cat-02-ax-cases   { background: #082f49; color: #7dd3fc; border-color: #0369a1; }
+    .cat-03-tools      { background: #022c22; color: #6ee7b7; border-color: #059669; }
+    .cat-04-inspiration { background: #451a03; color: #fcd34d; border-color: #b45309; }
 
-    .dot-ai-education  { background: var(--cat-ai); }
-    .dot-ax-cases      { background: var(--cat-ax); }
-    .dot-tools         { background: var(--cat-tools); }
-    .dot-inspiration   { background: var(--cat-inspo); }
+    .dot-00-me         { background: var(--cat-me); }
+    .dot-01-ai-education { background: var(--cat-ai); }
+    .dot-02-ax-cases   { background: var(--cat-ax); }
+    .dot-03-tools      { background: var(--cat-tools); }
+    .dot-04-inspiration { background: var(--cat-inspo); }
 
     .empty {
       grid-column: 1 / -1;
@@ -189,10 +192,11 @@
 
 <div class="filter-bar" id="filterBar">
   <button class="filter-btn active" data-cat="all" onclick="filter('all')">전체 <span class="count-badge" id="cnt-all">0</span></button>
-  <button class="filter-btn" data-cat="ai-education" onclick="filter('ai-education')">AI 교육 <span class="count-badge" id="cnt-ai-education">0</span></button>
-  <button class="filter-btn" data-cat="ax-cases" onclick="filter('ax-cases')">AX 사례 <span class="count-badge" id="cnt-ax-cases">0</span></button>
-  <button class="filter-btn" data-cat="tools" onclick="filter('tools')">도구 <span class="count-badge" id="cnt-tools">0</span></button>
-  <button class="filter-btn" data-cat="inspiration" onclick="filter('inspiration')">영감 <span class="count-badge" id="cnt-inspiration">0</span></button>
+  <button class="filter-btn" data-cat="00-me" onclick="filter('00-me')">내 이력 <span class="count-badge" id="cnt-00-me">0</span></button>
+  <button class="filter-btn" data-cat="01-ai-education" onclick="filter('01-ai-education')">AI 교육 <span class="count-badge" id="cnt-01-ai-education">0</span></button>
+  <button class="filter-btn" data-cat="02-ax-cases" onclick="filter('02-ax-cases')">AX 사례 <span class="count-badge" id="cnt-02-ax-cases">0</span></button>
+  <button class="filter-btn" data-cat="03-tools" onclick="filter('03-tools')">도구 <span class="count-badge" id="cnt-03-tools">0</span></button>
+  <button class="filter-btn" data-cat="04-inspiration" onclick="filter('04-inspiration')">영감 <span class="count-badge" id="cnt-04-inspiration">0</span></button>
 </div>
 
 <div class="grid" id="grid"></div>
@@ -202,11 +206,68 @@
 // 📝 여기에 항목 추가하면 자동으로 카드 생성됨
 // ────────────────────────────────────────────
 const items = [
+  // ── 내 이력 ──
+  {
+    title: "커리어렌즈 — AI 이력서 평가 서비스",
+    author: "구민정",
+    url: "https://career-lens.app",
+    cat: "00-me",
+    memo: "AI 면접관이 이력서를 평가해주는 서비스. 8년+ 멘토링 경험을 AI 프로덕트로. 2026 오픈 예정.",
+    tags: ["#프로덕트", "#AI", "#이력서"],
+    date: "2026",
+  },
+  {
+    title: "실험마켓 — 수익화 실험 서비스",
+    author: "구민정",
+    url: "https://tryout-market-front.vercel.app",
+    cat: "00-me",
+    memo: "수익화 실험을 위한 서비스. 직접 기획·개발·운영.",
+    tags: ["#프로덕트", "#솔로프리너"],
+    date: "2025",
+  },
+  {
+    title: "OKKY AI 콘텐츠 에이전트",
+    author: "구민정",
+    url: "https://congchu.github.io/okky-crew/news/index.html",
+    cat: "00-me",
+    memo: "브랜드 톤앤매너를 학습한 카드뉴스 자동 생성 에이전트. Claude 기반. 스토리형·기술형·보안형·토론형 4가지 스타일.",
+    tags: ["#AI에이전트", "#콘텐츠자동화", "#Claude"],
+    date: "2026",
+  },
+  {
+    title: "현대오토에버 AI 페어프로그래밍 풀데이 강의",
+    author: "구민정",
+    url: "https://kurie-lab.vercel.app/lecture",
+    cat: "00-me",
+    memo: "임직원 대상 GitHub Copilot·ChatGPT 실습. 하루 8시간 풀데이. 코멘토 통해 출강.",
+    tags: ["#기업출강", "#AI교육", "#풀데이"],
+    date: "2024-07",
+  },
+  {
+    title: "골프존 개발팀 AI 프로그래밍 강의",
+    author: "구민정",
+    url: "https://kurie-lab.vercel.app/lecture",
+    cat: "00-me",
+    memo: "현직 개발자 대상 AI 도구 실무 적용 강의.",
+    tags: ["#기업출강", "#AI교육"],
+    date: "2024-06",
+  },
+  {
+    title: "신한투자증권 웹개발 강의 5회 연속 재계약",
+    author: "구민정",
+    url: "https://kurie-lab.vercel.app/lecture",
+    cat: "00-me",
+    memo: "프로디지털아카데미. HTML·CSS·React. 2023~2025 5회 재계약. 재계약률의 증거.",
+    tags: ["#재계약", "#기업교육", "#React"],
+    date: "2023~2025",
+  },
+
+  // ── AI 교육 리서치 ──
   {
     title: "Get Ship Done — Simpson Gyusup Sim",
     author: "Simpson Gyusup Sim",
     url: "https://www.linkedin.com/posts/simpsonsim_aitgkrht-sakqpqrqesuy-getshipdone-share-7436695861755125761-RdTC/",
-    cat: "ai-education",
+    cat: "01-ai-education",
     memo: "비개발자 대상 바이브코딩 교육 포맷. 하루 6시간에 서비스 배포. 소수정예 + 결과물 보장 구조.",
     tags: ["#바이브코딩", "#비개발자", "#강의포맷"],
     date: "2026-03",
@@ -215,10 +276,11 @@ const items = [
 // ────────────────────────────────────────────
 
 const catLabel = {
-  "ai-education": "AI 교육",
-  "ax-cases": "AX 사례",
-  "tools": "도구",
-  "inspiration": "영감",
+  "00-me": "내 이력",
+  "01-ai-education": "AI 교육",
+  "02-ax-cases": "AX 사례",
+  "03-tools": "도구",
+  "04-inspiration": "영감",
 };
 
 let current = "all";
@@ -229,7 +291,7 @@ function render() {
 
   // update counts
   document.getElementById("cnt-all").textContent = items.length;
-  ["ai-education","ax-cases","tools","inspiration"].forEach(c => {
+  ["00-me","01-ai-education","02-ax-cases","03-tools","04-inspiration"].forEach(c => {
     document.getElementById("cnt-" + c).textContent = items.filter(i => i.cat === c).length;
   });
 
