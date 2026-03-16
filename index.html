@@ -197,7 +197,7 @@
       display: flex;
       flex-direction: column;
     }
-    .detail-panel.open { width: 420px; }
+    .detail-panel.open { width: 70%; }
     .detail-header {
       padding: 14px 18px;
       border-bottom: 1px solid var(--border);
@@ -260,15 +260,28 @@
     /* 선택된 아이템 강조 */
     .card.selected, .list-item.selected { border-color: var(--accent); background: var(--accent-bg); }
 
-    @media (max-width: 640px) {
-      .gnb { padding: 0 16px; height: 48px; }
+    @media (max-width: 768px) {
+      .gnb { padding: 0 14px; height: 48px; gap: 10px; }
       .gnb-logo { font-size: 14px; }
-      .filter-bar { padding: 8px 16px; }
-      .main-area { padding: 12px 16px; }
+      .gnb-tab { padding: 5px 10px; font-size: 12px; }
+      #searchInput { width: 110px; font-size: 12px; }
+      .filter-bar { padding: 8px 14px; gap: 5px; }
+      .filter-btn { padding: 3px 10px; font-size: 11px; }
+      .main-area { padding: 10px 14px; }
       .grid-view { grid-template-columns: 1fr; }
-      .list-item { grid-template-columns: 16px 1fr; }
+      .list-item { grid-template-columns: 14px 1fr; gap: 8px; padding: 9px 12px; }
       .list-right { display: none; }
-      .detail-panel.open { width: 100vw; position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; border-left: none; height: 100vh; }
+      /* 모바일: 패널이 화면 전체를 덮음 */
+      .detail-panel.open {
+        width: 100% !important;
+        position: fixed;
+        top: 0; right: 0; bottom: 0;
+        z-index: 200;
+        border-left: none;
+        height: 100dvh;
+      }
+      .detail-header { padding: 12px 16px; }
+      .detail-body { padding: 14px 16px; font-size: 13px; }
     }
   </style>
 </head>
